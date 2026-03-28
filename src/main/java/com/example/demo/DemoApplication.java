@@ -6,25 +6,17 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
+
+@RestController
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	
-	@Bean
-    public ApplicationRunner applicationRunner() {
-        return args -> {
-            try {
-                String ipAddress = InetAddress.getLocalHost().getHostAddress();
-                System.out.println("Server IP Address: " + ipAddress);
-            } catch (UnknownHostException e) {
-                System.err.println("Could not determine server IP address");
-            }
-        };
-    }
 	
 }
